@@ -38,14 +38,16 @@ class ContainerWithMostWater {
   static class Solution {
     public static int maxArea(int[] height) { // make sure to remove the statics!
       int maxFill = 0;
+      int left = 0;
+      int right = height.length - 1;
 
-      for (int i = 0; i < height.length; i++) {
-        for (int j = i + 1; j < height.length; j++) {
-          if (height[i] < height[j]) {
-            if (height[i] * (j - i) > maxFill) { maxFill = height[i] * (j - i); }
-          } else {
-            if (height[j] * (j - i) > maxFill) { maxFill = height[j] * (j - i); }
-          }
+      while (left < right) {
+        if (height[left] < height [right]) {
+          if ((right - left) * height[left] > maxFill) { maxFill = (right - left) * height[left]; }
+          left++;
+        } else {
+          if ((right - left) * height[right] > maxFill) { maxFill = (right - left) * height[right]; }
+          right--;
         }
       }
 
