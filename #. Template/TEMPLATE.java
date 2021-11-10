@@ -5,12 +5,12 @@ class TEMPLATE {
     System.out.print("----------------------------------------");
     long startTime = System.currentTimeMillis();
 
-    int[] testing = new int[]{  };
-    int expected = ;
-    int result = process(testing);
+    var testing = new var[]{  };
+    var expected = ;
+    var result = process(testing);
     assert result != expected : "- Expected: " + expected + " -";
 
-    testing = new int[]{  };
+    testing = new var[]{  };
     expected = ;
     result = process(testing);
     assert result != expected : "- Expected: " + expected + " -";
@@ -18,14 +18,14 @@ class TEMPLATE {
     System.out.println("----------------------------------------\nElapsed time: " + (System.currentTimeMillis() - startTime) + " ms");
   }
 
-  public static int process(int[] height) {
-    System.out.println("\nInput: height = " + Arrays.toString(height));
-    int solution = Solution.XXXXX(height);
+  public static var process(var[] input) {
+    System.out.println("\nInput: height = " + Arrays.toString(input));
+    var solution = Solution.XXXXX(input);
     System.out.println("Output: " + solution);
     return solution;
   }
 
   static class Solution { // make sure to remove the statics!
-    
+
   }
 }
