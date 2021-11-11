@@ -8,18 +8,22 @@ class TEMPLATE {
     var testing = new var[]{  };
     var expected = ;
     var result = process(testing);
-    assert result != expected : "- Expected: " + expected + " -";
+    if(result != expected) {
+      System.out.println("- Expected: " + expected + " -");
+    }
 
     testing = new var[]{  };
     expected = ;
     result = process(testing);
-    assert result != expected : "- Expected: " + expected + " -";
+    if(result != expected) {
+      System.out.println("- Expected: " + expected + " -");
+    }
 
     System.out.println("----------------------------------------\nElapsed time: " + (System.currentTimeMillis() - startTime) + " ms");
   }
 
   public static var process(var[] input) {
-    System.out.println("\nInput: height = " + Arrays.toString(input));
+    System.out.println("\nInput: XXXX = " + Arrays.toString(input));
     var solution = Solution.XXXXX(input);
     System.out.println("Output: " + solution);
     return solution;
