@@ -8,13 +8,16 @@ class RemoveDuplicatesFromSortedArray {
     int[] testing = new int[]{ 1,1,2 };
     int expected = 2;
     int result = process(testing);
-    assert result != expected : "- Expected: " + expected + " -";
-    // might need a little extra asserting to make sure the array is correct
+    if(result != expected) {
+      System.out.println("- Expected: " + expected + " -");
+    } // might need a little extra asserting to make sure the array is correct
 
     testing = new int[]{ 0,0,1,1,1,2,2,3,3,4 };
     expected = 5;
     result = process(testing);
-    assert result != expected : "- Expected: " + expected + " -";
+    if(result != expected) {
+      System.out.println("- Expected: " + expected + " -");
+    }
 
     System.out.println("----------------------------------------\nElapsed time: " + (System.currentTimeMillis() - startTime) + " ms");
   }
@@ -28,24 +31,15 @@ class RemoveDuplicatesFromSortedArray {
 
   static class Solution { // make sure to remove the statics!
     public static int removeDuplicates(int[] nums) {
-      if (nums.length == 0) {
+      if (nums.length <= 1) {
         return nums.length;
       } else {
-        int lastPlace = nums.length - 1;
+        int lastPlace = 0;
 
-        for (int i = lastPlace; i > 0; i--) {
-          if (nums[i] == nums[i - 1]) {
-            nums[i] = nums[lastPlace];
-            for (int j = i; j < lastPlace; j++) {
-              if (nums[j] > nums[j + 1]) {
-                nums[lastPlace] = nums[j]; // using that spot to hold a temp number
-                nums[j] = nums[j + 1];
-                nums[j + 1] = nums[lastPlace];
-              } else {
-                j = lastPlace;
-              }
-            }
-            lastPlace--;
+        for (int i = 1; i < nums.length; i++) {
+          if (nums[i] != nums[lastPlace]) {
+            lastPlace++;
+            nums[lastPlace] = nums[i];
           }
         }
 
